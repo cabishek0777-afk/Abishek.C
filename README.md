@@ -1,50 +1,13 @@
-<meta name='viewport' content='width=device-width, initial-scale=1'/><!DOCTYPE html>
+<meta name='viewport' content='width=device-width, initial-scale=1'/><meta name='viewport' content='width=device-width, initial-scale=1'/>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Abishek - Portfolio</title>
+    <title>Abishek - Creative Developer</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <style>
         body {
             box-sizing: border-box;
-        }
-        
-        /* Custom scrollbar */
-        ::-webkit-scrollbar {
-            width: 8px;
-        }
-        
-        ::-webkit-scrollbar-track {
-            background: rgba(255, 255, 255, 0.1);
-        }
-        
-        ::-webkit-scrollbar-thumb {
-            background: linear-gradient(45deg, #667eea, #764ba2);
-            border-radius: 4px;
-        }
-        
-        /* Smooth scroll */
-        html {
-            scroll-behavior: smooth;
-        }
-        
-        /* Glassmorphism effect */
-        .glass {
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-        }
-        
-        .dark .glass {
-            background: rgba(0, 0, 0, 0.2);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-        }
-        
-        /* Gradient backgrounds */
-        .gradient-bg {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
         }
         
         .gradient-text {
@@ -54,13 +17,362 @@
             background-clip: text;
         }
         
-        /* Animations */
+        .glass-effect {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .floating-animation {
+            animation: float 6s ease-in-out infinite;
+        }
+        
         @keyframes float {
             0%, 100% { transform: translateY(0px); }
             50% { transform: translateY(-20px); }
         }
         
-        @keyframes fadeInUp {
+        .slide-in {
+            animation: slideIn 0.8s ease-out;
+        }
+        
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateX(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+        
+        .tech-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            gap: 1rem;
+        }
+        
+        .project-card {
+            transition: all 0.3s ease;
+            transform-style: preserve-3d;
+        }
+        
+        .project-card:hover {
+            transform: rotateY(5deg) rotateX(5deg);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+        }
+        
+        .dark-mode {
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+        }
+    </style>
+</head>
+<body class="dark-mode text-white overflow-x-hidden">
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full z-50 glass-effect">
+        <div class="max-w-7xl mx-auto px-6 py-4">
+            <div class="flex justify-between items-center">
+                <div class="text-2xl font-bold gradient-text">Abishek</div>
+                <div class="hidden md:flex space-x-8">
+                    <a href="#home" class="hover:text-purple-400 transition duration-300">Home</a>
+                    <a href="#about" class="hover:text-purple-400 transition duration-300">About</a>
+                    <a href="#skills" class="hover:text-purple-400 transition duration-300">Skills</a>
+                    <a href="#projects" class="hover:text-purple-400 transition duration-300">Projects</a>
+                    <a href="#contact" class="hover:text-purple-400 transition duration-300">Contact</a>
+                </div>
+                <button id="mobile-menu-btn" class="md:hidden">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+            </div>
+            <div id="mobile-menu" class="md:hidden hidden mt-4 space-y-2">
+                <a href="#home" class="block py-2 hover:text-purple-400">Home</a>
+                <a href="#about" class="block py-2 hover:text-purple-400">About</a>
+                <a href="#skills" class="block py-2 hover:text-purple-400">Skills</a>
+                <a href="#projects" class="block py-2 hover:text-purple-400">Projects</a>
+                <a href="#contact" class="block py-2 hover:text-purple-400">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="min-h-screen flex items-center justify-center relative overflow-hidden pt-20">
+        <div class="absolute inset-0 opacity-20">
+            <div class="absolute top-20 left-10 w-72 h-72 bg-purple-500 rounded-full mix-blend-multiply filter blur-xl floating-animation"></div>
+            <div class="absolute top-40 right-10 w-72 h-72 bg-blue-500 rounded-full mix-blend-multiply filter blur-xl floating-animation" style="animation-delay: 2s;"></div>
+            <div class="absolute bottom-20 left-1/2 w-72 h-72 bg-pink-500 rounded-full mix-blend-multiply filter blur-xl floating-animation" style="animation-delay: 4s;"></div>
+        </div>
+        
+        <div class="text-center z-10 px-6 slide-in">
+            <div class="mb-8">
+                <div class="w-40 h-40 mx-auto rounded-full bg-gradient-to-r from-purple-400 via-pink-500 to-red-500 p-1">
+                    <div class="w-full h-full rounded-full bg-gray-900 flex items-center justify-center text-6xl">
+                        👨‍💻
+                    </div>
+                </div>
+            </div>
+            <h1 class="text-6xl md:text-8xl font-bold mb-6">
+                <span class="gradient-text">Abishek</span>
+            </h1>
+            <p class="text-xl md:text-2xl mb-4 text-gray-300">Creative Developer & Digital Artist</p>
+            <p class="text-lg mb-8 max-w-2xl mx-auto text-gray-400 leading-relaxed">
+                Crafting beautiful digital experiences with code, creativity, and a passion for innovation. 
+                Let's build something amazing together.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="#projects" class="bg-gradient-to-r from-purple-500 to-pink-500 px-8 py-4 rounded-full font-semibold hover:from-purple-600 hover:to-pink-600 transition duration-300 transform hover:scale-105">
+                    View My Work
+                </a>
+                <a href="#contact" class="border-2 border-purple-500 px-8 py-4 rounded-full font-semibold hover:bg-purple-500 transition duration-300 transform hover:scale-105">
+                    Get In Touch
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 px-6">
+        <div class="max-w-6xl mx-auto">
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div class="space-y-6">
+                    <h2 class="text-4xl md:text-5xl font-bold gradient-text">About Me</h2>
+                    <p class="text-gray-300 text-lg leading-relaxed">
+                        I'm a passionate developer who loves creating digital experiences that make a difference. 
+                        With expertise in modern web technologies and a keen eye for design, I transform ideas into reality.
+                    </p>
+                    <p class="text-gray-400 leading-relaxed">
+                        When I'm not coding, you'll find me exploring new technologies, contributing to open-source projects, 
+                        or sharing knowledge with the developer community. I believe in continuous learning and pushing the 
+                        boundaries of what's possible with code.
+                    </p>
+                    <div class="flex flex-wrap gap-3">
+                        <span class="bg-purple-900/50 text-purple-300 px-4 py-2 rounded-full text-sm">🚀 Innovation</span>
+                        <span class="bg-blue-900/50 text-blue-300 px-4 py-2 rounded-full text-sm">💡 Problem Solver</span>
+                        <span class="bg-pink-900/50 text-pink-300 px-4 py-2 rounded-full text-sm">🎨 Creative</span>
+                        <span class="bg-green-900/50 text-green-300 px-4 py-2 rounded-full text-sm">🌱 Lifelong Learner</span>
+                    </div>
+                </div>
+                <div class="relative">
+                    <div class="w-80 h-80 mx-auto relative">
+                        <div class="absolute inset-0 bg-gradient-to-r from-purple-500 to-pink-500 rounded-3xl transform rotate-6"></div>
+                        <div class="absolute inset-0 glass-effect rounded-3xl flex items-center justify-center text-8xl transform -rotate-3">
+                            🎯
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="py-20 px-6">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold gradient-text mb-4">Skills & Technologies</h2>
+                <p class="text-gray-400 max-w-2xl mx-auto">
+                    Here are the technologies and tools I work with to bring ideas to life
+                </p>
+            </div>
+            
+            <div class="tech-grid mb-12">
+                <div class="glass-effect p-6 rounded-2xl text-center hover:bg-white/20 transition duration-300">
+                    <div class="text-4xl mb-3">⚛️</div>
+                    <h3 class="font-semibold text-purple-300">React</h3>
+                </div>
+                <div class="glass-effect p-6 rounded-2xl text-center hover:bg-white/20 transition duration-300">
+                    <div class="text-4xl mb-3">📱</div>
+                    <h3 class="font-semibold text-blue-300">React Native</h3>
+                </div>
+                <div class="glass-effect p-6 rounded-2xl text-center hover:bg-white/20 transition duration-300">
+                    <div class="text-4xl mb-3">🟨</div>
+                    <h3 class="font-semibold text-yellow-300">JavaScript</h3>
+                </div>
+                <div class="glass-effect p-6 rounded-2xl text-center hover:bg-white/20 transition duration-300">
+                    <div class="text-4xl mb-3">🔷</div>
+                    <h3 class="font-semibold text-blue-400">TypeScript</h3>
+                </div>
+                <div class="glass-effect p-6 rounded-2xl text-center hover:bg-white/20 transition duration-300">
+                    <div class="text-4xl mb-3">🟢</div>
+                    <h3 class="font-semibold text-green-300">Node.js</h3>
+                </div>
+                <div class="glass-effect p-6 rounded-2xl text-center hover:bg-white/20 transition duration-300">
+                    <div class="text-4xl mb-3">🐍</div>
+                    <h3 class="font-semibold text-green-400">Python</h3>
+                </div>
+                <div class="glass-effect p-6 rounded-2xl text-center hover:bg-white/20 transition duration-300">
+                    <div class="text-4xl mb-3">🎨</div>
+                    <h3 class="font-semibold text-pink-300">CSS/Tailwind</h3>
+                </div>
+                <div class="glass-effect p-6 rounded-2xl text-center hover:bg-white/20 transition duration-300">
+                    <div class="text-4xl mb-3">🗄️</div>
+                    <h3 class="font-semibold text-orange-300">MongoDB</h3>
+                </div>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="glass-effect p-8 rounded-2xl">
+                    <h3 class="text-2xl font-bold text-purple-300 mb-4">Frontend</h3>
+                    <ul class="space-y-2 text-gray-300">
+                        <li>• Modern React & Next.js</li>
+                        <li>• Responsive Design</li>
+                        <li>• State Management</li>
+                        <li>• Performance Optimization</li>
+                    </ul>
+                </div>
+                <div class="glass-effect p-8 rounded-2xl">
+                    <h3 class="text-2xl font-bold text-blue-300 mb-4">Backend</h3>
+                    <ul class="space-y-2 text-gray-300">
+                        <li>• RESTful APIs</li>
+                        <li>• Database Design</li>
+                        <li>• Authentication</li>
+                        <li>• Cloud Services</li>
+                    </ul>
+                </div>
+                <div class="glass-effect p-8 rounded-2xl">
+                    <h3 class="text-2xl font-bold text-pink-300 mb-4">Tools</h3>
+                    <ul class="space-y-2 text-gray-300">
+                        <li>• Git & GitHub</li>
+                        <li>• Docker</li>
+                        <li>• CI/CD Pipelines</li>
+                        <li>• Testing Frameworks</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="py-20 px-6">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold gradient-text mb-4">Featured Projects</h2>
+                <p class="text-gray-400 max-w-2xl mx-auto">
+                    A showcase of my recent work and creative solutions
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Project 1 -->
+                <div class="project-card glass-effect rounded-2xl overflow-hidden">
+                    <div class="h-48 bg-gradient-to-br from-purple-500 to-pink-500 flex items-center justify-center text-6xl">
+                        🚀
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-white mb-2">AI-Powered Dashboard</h3>
+                        <p class="text-gray-400 mb-4">
+                            A modern analytics dashboard with AI insights and real-time data visualization.
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="bg-purple-900/50 text-purple-300 px-2 py-1 rounded text-xs">React</span>
+                            <span class="bg-blue-900/50 text-blue-300 px-2 py-1 rounded text-xs">TypeScript</span>
+                            <span class="bg-green-900/50 text-green-300 px-2 py-1 rounded text-xs">Node.js</span>
+                        </div>
+                        <div class="flex space-x-4">
+                            <a href="#" class="text-purple-400 hover:text-purple-300 font-semibold">Live Demo</a>
+                            <a href="#" class="text-gray-400 hover:text-gray-300 font-semibold">GitHub</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 2 -->
+                <div class="project-card glass-effect rounded-2xl overflow-hidden">
+                    <div class="h-48 bg-gradient-to-br from-blue-500 to-cyan-500 flex items-center justify-center text-6xl">
+                        📱
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-white mb-2">Mobile Fitness App</h3>
+                        <p class="text-gray-400 mb-4">
+                            Cross-platform fitness tracking app with social features and workout plans.
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="bg-blue-900/50 text-blue-300 px-2 py-1 rounded text-xs">React Native</span>
+                            <span class="bg-purple-900/50 text-purple-300 px-2 py-1 rounded text-xs">Firebase</span>
+                            <span class="bg-pink-900/50 text-pink-300 px-2 py-1 rounded text-xs">Redux</span>
+                        </div>
+                        <div class="flex space-x-4">
+                            <a href="#" class="text-blue-400 hover:text-blue-300 font-semibold">Live Demo</a>
+                            <a href="#" class="text-gray-400 hover:text-gray-300 font-semibold">GitHub</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 3 -->
+                <div class="project-card glass-effect rounded-2xl overflow-hidden">
+                    <div class="h-48 bg-gradient-to-br from-green-500 to-teal-500 flex items-center justify-center text-6xl">
+                        🌐
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-white mb-2">E-Commerce Platform</h3>
+                        <p class="text-gray-400 mb-4">
+                            Full-stack e-commerce solution with payment integration and admin panel.
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="bg-green-900/50 text-green-300 px-2 py-1 rounded text-xs">Next.js</span>
+                            <span class="bg-yellow-900/50 text-yellow-300 px-2 py-1 rounded text-xs">Stripe</span>
+                            <span class="bg-orange-900/50 text-orange-300 px-2 py-1 rounded text-xs">MongoDB</span>
+                        </div>
+                        <div class="flex space-x-4">
+                            <a href="#" class="text-green-400 hover:text-green-300 font-semibold">Live Demo</a>
+                            <a href="#" class="text-gray-400 hover:text-gray-300 font-semibold">GitHub</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 px-6">
+        <div class="max-w-4xl mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold gradient-text mb-4">Let's Connect</h2>
+                <p class="text-gray-400 max-w-2xl mx-auto">
+                    Ready to start your next project? Let's discuss how we can work together.
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 gap-12">
+                <div class="space-y-8">
+                    <div class="glass-effect p-6 rounded-2xl">
+                        <div class="flex items-center space-x-4">
+                            <div class="w-12 h-12 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full flex items-center justify-center text-xl">
+                                📧
+                            </div>
+                            <div>
+                                <h3 class="font-semibold text-white">Email</h3>
+                                <p class="text-gray-400">cabishek0777@gmail.com</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="glass-effect p-6 rounded-2xl">
+                        <div class="flex items-center space-x-4">
+                            <div class="w-12 h-12 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-full flex items-center justify-center text-xl">
+                                📱
+                            </div>
+                            <div>
+                                <h3 class="font-semibold text-white">Phone</h3>
+                                <p class="text-gray-400">+1 (780) 681-9765</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="glass-effect p-6 rounded-2xl">
+                        <div class="flex items-center space-x-4">
+                            <div class="w-12 h-12 bg-gradient-to-r from-green-500 to-teal-500 rounded-full flex items-center justify-center text-xl">
+                                📍
+                            </div>
+                            <div>
+                                <h3 class="font-semibold text-white">Location</h3>
+                                <p class="text-gray-400">Salem</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="flex space-x-4">
+                        <a href="#" class="w-12 h-12 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full flex items-center justify-cen        @keyframes fadeInUp {
             from {
                 opacity: 0;
                 transform: translateY(30px);
